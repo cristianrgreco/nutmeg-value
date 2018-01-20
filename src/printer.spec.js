@@ -16,7 +16,7 @@ describe('printer', () => {
     const total = { symbol: '£', value: 2000 }
     const totalContrib = { symbol: '£', value: 4000 }
 
-    const expected = colors.red(`- £1000 (-50%)`)
+    const expected = colors.red(`- £2000 (-50%)`)
     const actual = print(total, totalContrib)
 
     expect(actual).toBe(expected)

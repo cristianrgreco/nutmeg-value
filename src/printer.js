@@ -6,7 +6,7 @@ const print = (total, totalContrib) => {
   const totalPercentageDiff = percentageDifference(totalContrib.value, total.value)
   const isProfitable = totalPercentageDiff >= 0
   const color = isProfitable ? 'green' : 'red'
-  return colors[color](`${isProfitable ? '+' : '-'} ${total.symbol}${totalProfit} (${totalPercentageDiff}%)`)
+  return colors[color](`${isProfitable ? '+' : '-'} ${total.symbol}${Math.abs(totalProfit)} (${totalPercentageDiff}%)`)
 }
 
 module.exports = { print }
