@@ -7,10 +7,13 @@ describe('price', () => {
     expect(parsePrice('£1,000,000')).toEqual({ symbol: '£', value: 1000000 })
   })
 
+  it('should throw an error if unable to parse price', () => {
+    expect(() => parsePrice('abc')).toThrow('invalid price: abc')
+  })
+
   it('should return the difference as a percentage', () => {
     expect(percentageDifference(0, 0)).toBe(0)
     expect(percentageDifference(1, 2)).toBe(100)
     expect(percentageDifference(2, 1)).toBe(-50)
-    expect(percentageDifference(3, 7)).toBe(133)
   })
 })

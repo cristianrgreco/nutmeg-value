@@ -40,5 +40,6 @@ const { parsePrice } = require('./price');
 
   const parsedTotal = parsePrice(total)
   const parsedTotalContrib = parsePrice(totalContrib)
+
   console.log(print(parsedTotal, parsedTotalContrib))
 })()
