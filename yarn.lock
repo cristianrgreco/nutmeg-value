@@ -547,7 +547,7 @@ chardet@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
 
-chrome-launcher@^0.10.0:
+chrome-launcher@^0.10.0, chrome-launcher@^0.10.2:
   version "0.10.2"
   resolved "https://registry.yarnpkg.com/chrome-launcher/-/chrome-launcher-0.10.2.tgz#f7d860ddec627b6f01015736b5ae1e33b3d165b1"
   dependencies:

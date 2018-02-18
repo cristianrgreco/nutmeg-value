@@ -1,3 +1,4 @@
+const chromeLauncher = require('chrome-launcher')
 const { Chromeless } = require('chromeless')
 const page = require('./page')
 const { print } = require('./printer')
@@ -7,7 +8,8 @@ const { parsePrice } = require('./price');
 (async function () {
   const { username, password } = await promptCredentials()
 
-  const chromeless = new Chromeless()
+  const chrome = await chromeLauncher.launch({port: 9222, chromeFlags: ['--headless']})
+  const chromeless = new Chromeless({launchChrome: false})
 
   const { total, totalContrib } = await chromeless
     .goto(page.url)
@@ -42,4 +44,6 @@ const { parsePrice } = require('./price');
   const parsedTotalContrib = parsePrice(totalContrib)
 
   console.log(print(parsedTotal, parsedTotalContrib))
+
+  await chrome.kill()
 })()
