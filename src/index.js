@@ -5,18 +5,21 @@ const { print } = require('./printer')
 const { promptCredentials } = require('./credentials')
 const { parsePrice } = require('./price');
 
-(async function () {
-  const { username, password } = await promptCredentials()
+(async () => {
+  const chrome = await chromeLauncher.launch({ port: 9222, chromeFlags: ['--headless'] })
+  const chromeless = new Chromeless({ launchChrome: false })
 
-  const chrome = await chromeLauncher.launch({port: 9222, chromeFlags: ['--headless']})
-  const chromeless = new Chromeless({launchChrome: false})
+  const [{ username, password }] = await Promise.all([
+    promptCredentials(),
+    chromeless
+      .goto(page.url)
+      .wait(page.signInButton)
+      .click(page.signInButton)
+      .wait(page.usernameInput)
+      .wait(page.passwordInput)
+  ])
 
   const { total, totalContrib } = await chromeless
-    .goto(page.url)
-    .wait(page.signInButton)
-    .click(page.signInButton)
-    .wait(page.usernameInput)
-    .wait(page.passwordInput)
     .type(username, page.usernameInput)
     .type(password, page.passwordInput)
     .click(page.loginButton)
