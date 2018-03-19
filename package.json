@@ -1,8 +1,12 @@
 {
   "name": "nutmeg-value",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cristianrgreco/nutmeg-value"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "jest",
