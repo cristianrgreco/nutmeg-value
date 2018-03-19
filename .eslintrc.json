@@ -3,13 +3,5 @@
   "env": {
     "jasmine": true,
     "jest": true
-  },
-  "rules": {
-    "max-len": [
-      "error",
-      {
-        "code": 120
-      }
-    ]
   }
 }
