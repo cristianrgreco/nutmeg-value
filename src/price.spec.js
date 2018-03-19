@@ -1,10 +1,10 @@
-const { parsePrice, percentageDifference } = require('./price')
+const {parsePrice, percentageDifference} = require('./price')
 
 describe('price', () => {
   it('should parse the price', () => {
-    expect(parsePrice('£100')).toEqual({ symbol: '£', value: 100 })
-    expect(parsePrice('£10,000')).toEqual({ symbol: '£', value: 10000 })
-    expect(parsePrice('£1,000,000')).toEqual({ symbol: '£', value: 1000000 })
+    expect(parsePrice('£100')).toEqual({symbol: '£', value: 100})
+    expect(parsePrice('£10,000')).toEqual({symbol: '£', value: 10000})
+    expect(parsePrice('£1,000,000')).toEqual({symbol: '£', value: 1000000})
   })
 
   it('should throw an error if unable to parse price', () => {
